@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Request the HRIS Selection Guide",
+  title: "HRIS Selection Guide",
   description: "Request the ADP, BambooHR, Workday, and Rippling HRIS selection guide.",
 };
 

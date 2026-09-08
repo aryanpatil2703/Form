@@ -25,7 +25,7 @@ const fields: Field[] = [
   { name: "phone_number", label: "Phone", autoComplete: "tel", required: true, type: "tel" },
 ];
 
-export function SelectHubForm({ campaignSlug, submitButtonText = "Request the selection guide", customFields = [] }: { campaignSlug: string; submitButtonText?: string; customFields?: { name: string; label: string; type: string }[] }) {
+export function SelectHubForm({ campaignSlug, submitButtonText = "Submit", customFields = [] }: { campaignSlug: string; submitButtonText?: string; customFields?: { name: string; label: string; type: string }[] }) {
   const allFields = [...fields, ...customFields.map(cf => ({ ...cf, autoComplete: "off" }))];
   const initialValues = Object.fromEntries([...allFields.map(({ name }) => [name, ""]), ["company_size", ""]]);
 

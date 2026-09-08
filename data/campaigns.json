@@ -45,7 +45,7 @@
       "formTitle": "Send me the guide"
     },
     "formConfig": {
-      "submitButtonText": "Request the selection guide",
+      "submitButtonText": "Submit",
       "customFields": []
     },
     "selectHubConfig": {

@@ -103,7 +103,7 @@ export default function AdminPage() {
             <label>Guide Note Text: <input name="guideNoteText" defaultValue="One concise guide for teams weighing their next system." style={{ width: "100%", padding: "8px" }} /></label>
             <label>Form Eyebrow: <input name="formEyebrow" defaultValue="YOUR DETAILS" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Form Title: <input name="formTitle" defaultValue="Send me the guide" style={{ width: "100%", padding: "8px" }} /></label>
-            <label>Submit Button Text: <input name="submitButtonText" defaultValue="Request the selection guide" style={{ width: "100%", padding: "8px" }} /></label>
+            <label>Submit Button Text: <input name="submitButtonText" defaultValue="Submit" style={{ width: "100%", padding: "8px" }} /></label>
           </div>
         </section>
 

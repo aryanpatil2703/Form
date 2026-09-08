@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         formTitle: (formData.get("formTitle") as string) || "Send me the guide",
       },
       formConfig: {
-        submitButtonText: (formData.get("submitButtonText") as string) || "Request the selection guide",
+        submitButtonText: (formData.get("submitButtonText") as string) || "Submit",
         customFields: JSON.parse((formData.get("customFields") as string) || "[]"),
       },
       selectHubConfig: {
