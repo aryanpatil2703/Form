@@ -32,7 +32,7 @@ To test the complete path through the local backend and the real SelectHub Relay
 
 ```powershell
 @'
-{"campaignSlug":"HRIS","email":"selecthub-api-test@example.com","first_name":"API","last_name":"Test","industry":"Technology","industry_other":"Software","function":"IT","title":"API Test Contact","company_name":"SelectHub API Test","company_size":"1 - 49","address":"123 Test Street","address_2":"","city":"Pune","state":"Maharashtra","zip":"411001","country":"India","phone_number":"+919999999999"}
+{"campaignSlug":"HRIS","email":"selecthub-api-test@example.com","first_name":"API","last_name":"Test","industry":"Technology","industry_other":"Software","function":"IT","title":"API Test Contact","company_name":"SelectHub API Test","company_size":"1 - 49","implementation_timeline":"0 - 6 months","address":"123 Test Street","address_2":"","city":"Pune","state":"Maharashtra","zip":"411001","country":"India","phone_number":"+919999999999"}
 '@ | Set-Content -NoNewline "$env:TEMP\selecthub-test-payload.json"
 curl.exe -i -X POST http://localhost:3000/api/selecthub -H "Content-Type: application/json" --data-binary "@$env:TEMP\selecthub-test-payload.json"
 ```
@@ -40,7 +40,7 @@ curl.exe -i -X POST http://localhost:3000/api/selecthub -H "Content-Type: applic
 **Bash**:
 
 ```bash
-payload='{"campaignSlug":"HRIS","email":"selecthub-api-test@example.com","first_name":"API","last_name":"Test","industry":"Technology","industry_other":"Software","function":"IT","title":"API Test Contact","company_name":"SelectHub API Test","company_size":"1 - 49","address":"123 Test Street","address_2":"","city":"Pune","state":"Maharashtra","zip":"411001","country":"India","phone_number":"+919999999999"}'
+payload='{"campaignSlug":"HRIS","email":"selecthub-api-test@example.com","first_name":"API","last_name":"Test","industry":"Technology","industry_other":"Software","function":"IT","title":"API Test Contact","company_name":"SelectHub API Test","company_size":"1 - 49","implementation_timeline":"0 - 6 months","address":"123 Test Street","address_2":"","city":"Pune","state":"Maharashtra","zip":"411001","country":"India","phone_number":"+919999999999"}'
 curl -i -X POST http://localhost:3000/api/selecthub \
 	-H 'Content-Type: application/json' \
 	--data-raw "$payload"
@@ -69,6 +69,7 @@ Also confirm the development server logs show `SelectHub submission successful`.
 | Position | `title` |
 | Company | `company_name` |
 | Company size | `company_size` |
+| Software implementation timeline | `implementation_timeline` |
 | Street address | `address` |
 | Address 2 | `address_2` |
 | City | `city` |
@@ -76,6 +77,8 @@ Also confirm the development server logs show `SelectHub submission successful`.
 | Zip / postal code | `zip` |
 | Country | `country` |
 | Phone | `phone_number` |
+
+Implementation timeline values are exactly: `0 - 6 months`, `7 - 12 months`, `More than 12 months`, and `Not decided yet`.
 
 Company size values are exactly: `1 - 49`, `50 - 99`, `100 - 499`, `500 - 999`, `1000 - 4999`, `5000 - 9999`, `10000 - 19999`, and `20000+`.
 

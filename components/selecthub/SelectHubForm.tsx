@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { COMPANY_SIZES } from "@/lib/selecthub/config";
+import { COMPANY_SIZES, IMPLEMENTATION_TIMELINES } from "@/lib/selecthub/config";
 import { leadSchema } from "@/lib/selecthub/validation";
 
 type FormValues = Record<string, string>;
@@ -27,7 +27,7 @@ const fields: Field[] = [
 
 export function SelectHubForm({ campaignSlug, submitButtonText = "Submit", customFields = [] }: { campaignSlug: string; submitButtonText?: string; customFields?: { name: string; label: string; type: string }[] }) {
   const allFields = [...fields, ...customFields.map(cf => ({ ...cf, autoComplete: "off" }))];
-  const initialValues = Object.fromEntries([...allFields.map(({ name }) => [name, ""]), ["company_size", ""]]);
+  const initialValues = Object.fromEntries([...allFields.map(({ name }) => [name, ""]), ["company_size", ""], ["implementation_timeline", ""]]);
 
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -87,6 +87,7 @@ export function SelectHubForm({ campaignSlug, submitButtonText = "Submit", custo
       <div className="field-grid">
         {fields.slice(0, 8).map((field) => <Input key={field.name} field={field} value={values[field.name]} error={errors[field.name]} onChange={update} />)}
         <div className="field"><label htmlFor="company_size">Company size <span aria-hidden="true">*</span></label><select id="company_size" name="company_size" value={values.company_size} onChange={(event) => update("company_size", event.target.value)} aria-invalid={Boolean(errors.company_size)} aria-describedby={errors.company_size ? "company_size-error" : undefined} required><option value="">Select a range</option>{COMPANY_SIZES.map((size) => <option key={size} value={size}>{size}</option>)}</select>{errors.company_size && <Error id="company_size-error" text={errors.company_size} />}</div>
+        <div className="field"><label htmlFor="implementation_timeline">When is your company planning to implement new software? <span aria-hidden="true">*</span></label><select id="implementation_timeline" name="implementation_timeline" value={values.implementation_timeline} onChange={(event) => update("implementation_timeline", event.target.value)} aria-invalid={Boolean(errors.implementation_timeline)} aria-describedby={errors.implementation_timeline ? "implementation_timeline-error" : undefined} required><option value="">Select a timeframe</option>{IMPLEMENTATION_TIMELINES.map((timeline) => <option key={timeline} value={timeline}>{timeline}</option>)}</select>{errors.implementation_timeline && <Error id="implementation_timeline-error" text={errors.implementation_timeline} />}</div>
         {fields.slice(8).map((field) => <Input key={field.name} field={field} value={values[field.name] || ""} error={errors[field.name]} onChange={update} />)}
         {customFields.map((field) => <Input key={field.name} field={{ ...field, autoComplete: "off" }} value={values[field.name] || ""} error={errors[field.name]} onChange={update} />)}
       </div>

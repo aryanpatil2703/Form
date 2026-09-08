@@ -5,7 +5,7 @@ import { leadSchema, type LeadData } from "../lib/selecthub/validation";
 
 const validLead: LeadData = {
   email: "john@example.com", first_name: "John", last_name: "Doe", industry: "Technology", industry_other: "Software",
-  function: "IT", title: "CTO", company_name: "ABC Technologies", company_size: "100 - 499", address: "123 Main Street",
+  function: "IT", title: "CTO", company_name: "ABC Technologies", company_size: "100 - 499", implementation_timeline: "0 - 6 months", address: "123 Main Street",
   address_2: "", city: "Pune", state: "Maharashtra", zip: "411001", country: "India", phone_number: "+919999999999",
 };
 
@@ -23,6 +23,7 @@ const mockConfig = {
 test("validates a complete lead and exact company size", () => {
   assert.equal(leadSchema.safeParse(validLead).success, true);
   assert.equal(leadSchema.safeParse({ ...validLead, company_size: "Medium" }).success, false);
+  assert.equal(leadSchema.safeParse({ ...validLead, implementation_timeline: "Soon" }).success, false);
 });
 
 test("generates a fresh UUID for every payload", () => {

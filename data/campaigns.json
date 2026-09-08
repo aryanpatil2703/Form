@@ -15,7 +15,7 @@
       "formTitle": "Send me the guide"
     },
     "formConfig": {
-      "submitButtonText": "Request the selection guide",
+      "submitButtonText": "Submit",
       "customFields": []
     },
     "selectHubConfig": {
@@ -51,10 +51,10 @@
     "selectHubConfig": {
       "lead_source": "SAGA-PPL",
       "campaign": "asset_request",
-      "category": "HR Management Software",
+      "category": "ERP Management Software",
       "asset_type": "Selection Guide",
       "contract_po_number": "SAGA-HR-Global",
-      "campaign_name": "SAGA HRIS Systems ADP VS BattleCard 26",
+      "campaign_name": "SAGA ERP Systems ADP VS BattleCard 26",
       "page_url": "https://get.softwarebattlecard.com/",
       "user_journey": "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL"
     }
