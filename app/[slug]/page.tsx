@@ -49,6 +49,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ slug:
           campaignSlug={campaign.slug} 
           submitButtonText={formConfig.submitButtonText} 
           customFields={formConfig.customFields} 
+          suppressedCompanies={campaign.competitors}
         />
       </section>
     </main>

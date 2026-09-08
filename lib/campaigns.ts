@@ -21,16 +21,8 @@ export interface CampaignConfig {
     submitButtonText: string;
     customFields: { name: string; label: string; type: string }[];
   };
-  selectHubConfig: {
-    lead_source: string;
-    campaign: string;
-    category: string;
-    asset_type: string;
-    contract_po_number: string;
-    campaign_name: string;
-    page_url: string;
-    user_journey: string;
-  };
+  selectHubConfig: Record<string, string>;
+  competitors?: string[];
 }
 
 const dataFilePath = path.join(process.cwd(), "data", "campaigns.json");

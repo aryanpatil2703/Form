@@ -14,7 +14,7 @@ export const leadSchema = z.object({
   title: requiredText("Position"),
   company_name: requiredText("Company"),
   company_size: z.enum(COMPANY_SIZES, { message: "Please select a company size." }),
-  implementation_timeline: z.enum(IMPLEMENTATION_TIMELINES, { message: "Please select an implementation timeline." }),
+  timeframe_to_decision: z.enum(IMPLEMENTATION_TIMELINES, { message: "Please select an implementation timeline." }),
   address: requiredText("Street address"),
   address_2: z.string().trim().max(300),
   city: requiredText("City"),

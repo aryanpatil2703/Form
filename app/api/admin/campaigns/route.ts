@@ -35,11 +35,15 @@ export async function POST(request: NextRequest) {
         lead_source: (formData.get("lead_source") as string) || "SAGA-PPL",
         campaign: (formData.get("campaign") as string) || "asset_request",
         category: (formData.get("category") as string) || "HR Management Software",
+        category_slug: (formData.get("category_slug") as string) || "",
+        survey_slug: (formData.get("survey_slug") as string) || "",
         asset_type: (formData.get("asset_type") as string) || "Selection Guide",
+        team: (formData.get("team") as string) || "",
         contract_po_number: (formData.get("contract_po_number") as string) || "SAGA-HR-Global",
         campaign_name: (formData.get("campaign_name") as string) || "SAGA HRIS Systems ADP VS BattleCard 26",
         page_url: (formData.get("page_url") as string) || "https://get.softwarebattlecard.com/",
         user_journey: (formData.get("user_journey") as string) || "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL",
+        timeframe_to_decision: (formData.get("timeframe_to_decision") as string) || "",
       }
     };
 

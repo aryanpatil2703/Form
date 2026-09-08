@@ -23,6 +23,7 @@
       "campaign": "asset_request",
       "category": "HR Management Software",
       "asset_type": "Selection Guide",
+      "team": "CM",
       "contract_po_number": "SAGA-HR-Global",
       "campaign_name": "SAGA HRIS Systems ADP VS BattleCard 26",
       "page_url": "https://get.softwarebattlecard.com/saga-hris-battlecard-adp-vs-bamboohr-vs-workday-vs-rippling/",
@@ -48,15 +49,34 @@
       "submitButtonText": "Submit",
       "customFields": []
     },
+    "competitors": [
+      "Acumatica",
+      "IQMS",
+      "Plex",
+      "NetSuite",
+      "Epicor",
+      "Infor",
+      "IFS",
+      "Sage",
+      "Oracle",
+      "SAP",
+      "Microsoft",
+      "SYSPRO",
+      "Gartner"
+    ],
     "selectHubConfig": {
       "lead_source": "SAGA-PPL",
-      "campaign": "asset_request",
-      "category": "ERP Management Software",
-      "asset_type": "Selection Guide",
-      "contract_po_number": "SAGA-HR-Global",
-      "campaign_name": "SAGA ERP Systems ADP VS BattleCard 26",
-      "page_url": "https://get.softwarebattlecard.com/",
-      "user_journey": "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL"
+      "category": "ERP Software",
+      "category_slug": "erp-software",
+      "survey_slug": "",
+      "campaign": "free_custom_scorecard",
+      "campaign_name": "SAGA Top 20 ERP Comparison Oracle VS BattleCard 26",
+      "asset_type": "Analyst Report",
+      "team": "CM",
+      "contract_po_number": "SAGA-ERP-Global",
+      "user_journey": "Top 20 ERP Systems Comparison BattleCard, Oracle ERP vs Best ALT PPL",
+      "page_url": "https://get.softwarebattlecard.com/saga-top-20-erp-systems-comparison-oracle-vs-alt/"
+      
     }
   }
 ]

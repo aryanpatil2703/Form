@@ -80,6 +80,14 @@ Also confirm the development server logs show `SelectHub submission successful`.
 
 Implementation timeline values are exactly: `0 - 6 months`, `7 - 12 months`, `More than 12 months`, and `Not decided yet`.
 
+For campaigns with a `competitors` list, an exact company-name match is suppressed case-insensitively and is not saved or sent to SelectHub. The ERP campaign suppresses Oracle, Ceridian, Epicor, UKG, Zoho, Paycom, Paycor, ADP, SAP, Cornerstone, Workday, Infor, and Gartner. Names such as `Oracle Consulting` are not exact matches and remain eligible.
+
+## ERP campaign
+
+The `/ERP` campaign uses the **SAGA Top 20 ERP Comparison Oracle VS BattleCard 26** configuration and landing page URL. Its server-controlled hidden values include `lead_source=SAGA-PPL`, `category=ERP Software`, `category_slug=erp-software`, `survey_slug=`, `campaign=free_custom_scorecard`, `campaign_name=SAGA Top 20 ERP Comparison Oracle VS BattleCard 26`, `asset_type=Analyst Report`, `team=CM`, `contract_po_number=SAGA-ERP-Global`, `user_journey=Top 20 ERP Systems Comparison BattleCard, Oracle ERP vs Best ALT PPL`, and the configured ERP `page_url`. The required form question is sent as `timeframe_to_decision` with the selected timeframe value.
+
+Its competitor list is: Acumatica, IQMS, Plex, NetSuite, Epicor, Infor, IFS, Sage, Oracle, SAP, Microsoft, SYSPRO, and Gartner.
+
 Company size values are exactly: `1 - 49`, `50 - 99`, `100 - 499`, `500 - 999`, `1000 - 4999`, `5000 - 9999`, `10000 - 19999`, and `20000+`.
 
 ## Hidden campaign fields

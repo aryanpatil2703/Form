@@ -6,6 +6,7 @@ import { leadSchema, validationErrors } from "@/lib/selecthub/validation";
 import { getCampaignBySlug } from "@/lib/campaigns";
 import { createSubmission, hasDurableSubmissionStore, updateSubmission } from "@/lib/submissions";
 import { randomUUID } from "crypto";
+import { isSuppressedCompany } from "@/lib/selecthub/suppression";
 
 export async function POST(request: NextRequest) {
   let body: unknown;
@@ -36,6 +37,14 @@ export async function POST(request: NextRequest) {
   const campaign = await getCampaignBySlug(campaignSlug.trim());
   if (!campaign) {
     return NextResponse.json({ success: false, message: "Campaign not found." }, { status: 404 });
+  }
+
+  if (isSuppressedCompany(parsed.data.company_name, campaign.competitors)) {
+    console.info(`SelectHub submission suppressed for campaign ${campaign.slug}`);
+    return NextResponse.json(
+      { success: false, message: "This company is not eligible for this campaign." },
+      { status: 422 },
+    );
   }
 
   if (!hasDurableSubmissionStore()) {

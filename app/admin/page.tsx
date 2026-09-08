@@ -113,11 +113,15 @@ export default function AdminPage() {
             <label>Lead Source: <input name="lead_source" defaultValue="SAGA-PPL" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Campaign: <input name="campaign" defaultValue="asset_request" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Category: <input name="category" defaultValue="HR Management Software" style={{ width: "100%", padding: "8px" }} /></label>
+            <label>Category Slug: <input name="category_slug" style={{ width: "100%", padding: "8px" }} /></label>
+            <label>Survey Slug: <input name="survey_slug" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Asset Type: <input name="asset_type" defaultValue="Selection Guide" style={{ width: "100%", padding: "8px" }} /></label>
+            <label>Team: <input name="team" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Contract PO Number: <input name="contract_po_number" defaultValue="SAGA-HR-Global" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Campaign Name: <input name="campaign_name" defaultValue="SAGA HRIS Systems ADP VS BattleCard 26" style={{ width: "100%", padding: "8px" }} /></label>
             <label>Page URL: <input name="page_url" defaultValue="https://get.softwarebattlecard.com/" style={{ width: "100%", padding: "8px" }} /></label>
             <label>User Journey: <input name="user_journey" defaultValue="HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL" style={{ width: "100%", padding: "8px" }} /></label>
+            <label>Timeframe to Decision: <input name="timeframe_to_decision" style={{ width: "100%", padding: "8px" }} /></label>
           </div>
         </section>
 
