@@ -15,6 +15,14 @@ Environment variables:
 - `SELECTHUB_RELAY_URL`: defaults to `https://prod-relay.herokuapp.com/api/relay`.
 - `SELECTHUB_SCORECARD_ID`: retained for compatibility with the supplied configuration, but intentionally unused. Each submission receives a new server-generated UUID.
 - `SELECTHUB_MOCK`: set to `true` for local development to avoid sending test leads; it is ignored in production.
+- `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_SESSION_SECRET`: required for protected admin access. Store these as Vercel environment variables, never in source control.
+- `MONGODB_URI` and `MONGODB_DB`: required in production for durable submission records. Use a MongoDB Atlas connection string and database name.
+
+## Platform administration
+
+Open `/admin/login` to access the protected control room. The single-admin account is configured through `ADMIN_EMAIL` and `ADMIN_PASSWORD`; successful login creates an expiring, HTTP-only signed session cookie. Campaign management and submission APIs require that session. Campaign hidden fields are configured per campaign, so each campaign can use its own `lead_source`, `campaign`, `category`, `asset_type`, `contract_po_number`, `campaign_name`, `page_url`, and `user_journey` values.
+
+The control room's Submission records section shows the submission date/time, campaign, status, generated `scorecard_id`, lead fields, hidden SelectHub fields, and delivery errors. In production, configure MongoDB Atlas because Vercel's filesystem is not durable. The local JSON store is intended only for local development.
 
 ## Live API smoke test
 
@@ -78,6 +86,14 @@ The server adds `lead_source=SAGA-PPL`, `campaign=asset_request`, `category=HR M
 ## Production SelectHub setup
 
 The production server's public outbound IP must be provided to SelectHub and whitelisted. Requests from non-whitelisted systems may be rejected before processing. Local development may not work against the production Relay until the development machine/server IP is whitelisted. Production must use the deployed server's outbound public IP. The supplied campaign files did not contain a scorecard ID; the implementation therefore generates one per submission and does not invent or reuse a configured value.
+
+### Vercel deployment checklist
+
+In Vercel Project Settings, add `SELECTHUB_RELAY_URL` and set `SELECTHUB_MOCK` to `false` for the Production environment, then redeploy. Ask SelectHub to whitelist the outbound IP used by the Vercel deployment. Vercel serverless functions do not generally provide one fixed outbound IP on standard plans; if SelectHub requires a fixed IP, route the request through a provider with a static egress IP or use a Vercel plan/configuration that provides fixed outbound IPs. A `502` from `/api/selecthub` means the internal API was reached but the Relay request failed; inspect Vercel Function Logs for the logged Relay HTTP status.
+
+## AWS deployment with a static IP
+
+For SelectHub IP whitelisting, deploy the container on an Ubuntu EC2 instance with an AWS Elastic IP and use MongoDB Atlas for durable submission records. The Elastic IP is the stable outbound address sent to SelectHub. Add that Elastic IP to the MongoDB Atlas IP access list as well. Follow the complete guide in [`deploy/aws/README.md`](deploy/aws/README.md). Do not use the Vercel deployment and AWS static-IP deployment for the same production form unless you whitelist both egress addresses.
 
 ## Checks
 

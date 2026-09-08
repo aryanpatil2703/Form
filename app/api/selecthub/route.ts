@@ -4,6 +4,8 @@ import { buildSelectHubPayload } from "@/lib/selecthub/payload";
 import { submitLeadToSelectHub } from "@/lib/selecthub/service";
 import { leadSchema, validationErrors } from "@/lib/selecthub/validation";
 import { getCampaignBySlug } from "@/lib/campaigns";
+import { createSubmission, hasDurableSubmissionStore, updateSubmission } from "@/lib/submissions";
+import { randomUUID } from "crypto";
 
 export async function POST(request: NextRequest) {
   let body: unknown;
@@ -36,17 +38,34 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, message: "Campaign not found." }, { status: 404 });
   }
 
+  if (!hasDurableSubmissionStore()) {
+    console.error("Submission storage is not configured for production");
+    return NextResponse.json({ success: false, message: "Submission service is not configured." }, { status: 503 });
+  }
+
   const payload = buildSelectHubPayload(parsed.data, campaign.selectHubConfig, getClientIp(request));
+  const submissionId = randomUUID();
+  await createSubmission({
+    id: submissionId,
+    created_at: new Date().toISOString(),
+    status: "pending",
+    campaign_slug: campaign.slug,
+    scorecard_id: payload.scorecard_id,
+    lead: parsed.data,
+    selecthub_payload: payload,
+  });
   console.info("SelectHub submission started");
   const result = await submitLeadToSelectHub(payload);
   if (!result.success) {
-    console.error(`SelectHub submission failed: ${result.error}`);
+    await updateSubmission(submissionId, "failed", result.error);
+    console.error(`SelectHub submission failed: ${result.error}${result.status ? ` (HTTP ${result.status})` : ""}`);
     return NextResponse.json(
       { success: false, message: "We were unable to submit your information. Please try again." },
       { status: 502 },
     );
   }
 
+  await updateSubmission(submissionId, "submitted");
   console.info("SelectHub submission successful");
   return NextResponse.json({ success: true, message: "Lead submitted successfully." });
 }
