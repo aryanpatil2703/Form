@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "HRIS",
+    "visuals": {
+      "logoUrl": "/uploads/HRIS-logo.png",
+      "coverImageUrl": "/uploads/HRIS-cover.png"
+    },
+    "content": {
+      "eyebrow": "SAGA / RESEARCH BRIEF",
+      "title": "Make the next decision with a clearer view.",
+      "introCopy": "Get the practical selection guide.",
+      "guideNoteNumber": "01",
+      "guideNoteText": "One concise guide for teams weighing their next system.",
+      "formEyebrow": "YOUR DETAILS",
+      "formTitle": "Send me the guide"
+    },
+    "formConfig": {
+      "submitButtonText": "Request the selection guide",
+      "customFields": []
+    },
+    "selectHubConfig": {
+      "lead_source": "SAGA-PPL",
+      "campaign": "asset_request",
+      "category": "HR Management Software",
+      "asset_type": "Selection Guide",
+      "contract_po_number": "SAGA-HR-Global",
+      "campaign_name": "SAGA HRIS Systems ADP VS BattleCard 26",
+      "page_url": "https://get.softwarebattlecard.com/saga-hris-battlecard-adp-vs-bamboohr-vs-workday-vs-rippling/",
+      "user_journey": "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL"
+    }
+  },
+  {
+    "slug": "ERP",
+    "visuals": {
+      "logoUrl": "/uploads/ERP-logo.png",
+      "coverImageUrl": "/uploads/ERP-cover.jpg"
+    },
+    "content": {
+      "eyebrow": "SAGA / RESEARCH BRIEF",
+      "title": "Make the next decision with a clearer view.",
+      "introCopy": "Get the practical selection guide.",
+      "guideNoteNumber": "01",
+      "guideNoteText": "One concise guide for teams weighing their next system.",
+      "formEyebrow": "YOUR DETAILS",
+      "formTitle": "Send me the guide"
+    },
+    "formConfig": {
+      "submitButtonText": "Request the selection guide",
+      "customFields": []
+    },
+    "selectHubConfig": {
+      "lead_source": "SAGA-PPL",
+      "campaign": "asset_request",
+      "category": "HR Management Software",
+      "asset_type": "Selection Guide",
+      "contract_po_number": "SAGA-HR-Global",
+      "campaign_name": "SAGA HRIS Systems ADP VS BattleCard 26",
+      "page_url": "https://get.softwarebattlecard.com/",
+      "user_journey": "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL"
+    }
+  }
+]

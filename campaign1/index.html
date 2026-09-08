@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Pharma Is Investing for the Future of Medicine - Clarivate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/common.css" />
+</head>
+
+<body>
+
+    <!-- Navbar with both logos -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logos-container">
+                <!-- Clarivate Logo on the left -->
+                <a class="navbar-brand d-flex align-items-center" href="#"
+                    target="_blank">
+                    <img src="images/Clarivate_Logo.png" alt="Clarivate Logo"
+                        style="max-height: 50px;">
+                </a>
+
+                <!-- TechMediaGlobal Logo on the right -->
+                <a class="navbar-brand d-flex align-items-center" href="#" target="_blank">
+                    <img src="images/techmediaglobal.png" alt="TechMediaGlobal Logo"
+                        style="max-height: 50px;">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container-xl">
+            <div class="row g-4 g-xl-5 align-items-start">
+
+                <!-- Col 1: Text & PDF Preview -->
+                <div class="col-lg-7 text-col">
+                    <h2 class="subheadline">Biopharma deal making in 2025 and 2026</h2>
+                    <h1>Where Pharma Is Investing for the Future of Medicine</h1>
+
+                    <div class="preview-inline-wrap">
+                        <img src="./images/Cover_image.png" alt="Report Cover" class="preview-image">
+                    </div>
+
+                    <p>
+                        The biopharma industry is entering a new era of strategic deal making, with companies making fewer but larger bets to secure future growth. This report explores the deals, therapeutic areas, technologies and global innovation hubs shaping the future of medicine.
+                    </p>
+
+                    <h3 class="mt-4 mb-3">Key Insights</h3>
+                    <ul class="report-highlights">
+                        <li><strong>Record deal values:</strong> Biopharma deal values reached $292.6B in 2025, up 27% from 2024.</li>
+                        <li><strong>Mega-partnerships are reshaping pipelines:</strong> Pharma companies are prioritizing larger, multi-program partnerships to access platforms and strengthen future pipelines.</li>
+                        <li><strong>China is becoming a major innovation hub:</strong> Mainland China accounted for 32% of global out-licensing transactions in H1 2025, up from just 5% in 2020.</li>
+                        <li><strong>AI is transforming drug discovery:</strong> Partnerships between pharma, technology companies and AI-focused biotechs are creating new approaches to drug discovery and development.</li>
+                        <li><strong>Oncology remains a priority:</strong> ADCs, bispecific antibodies and radiopharmaceuticals continue to attract significant strategic investment.</li>
+                        <li><strong>New opportunities beyond established franchises:</strong> Leading pharma companies are expanding into RNA therapeutics, immunology, metabolic disease, gene therapy and other emerging modalities.</li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Form Card -->
+                <div class="col-lg-5">
+                    <div class="form-card">
+                        <h4 class="card-title">Download the Report</h4>
+
+                        <form id="mainForm" novalidate>
+
+                            <div class="form-field">
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                                <div class="invalid-msg">Please enter your first name</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                                <div class="invalid-msg">Please enter your last name</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="email" id="workEmail" name="workEmail" placeholder="Work Email" required>
+                                <div class="invalid-msg">Please enter a valid work email</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title" required>
+                                <div class="invalid-msg">Please enter your job title</div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <input type="text" id="jobFunction" name="jobFunction" placeholder="Job Function" required>
+                                <div class="invalid-msg">Please enter your job function</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="companyName" name="companyName" placeholder="Company Name"
+                                    required>
+                                <div class="invalid-msg">Please enter your company name</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="industry" name="industry" placeholder="Industry" required>
+                                <div class="invalid-msg">Please enter your industry</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="state" name="state" placeholder="State" required>
+                                <div class="invalid-msg">Please enter your state</div>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="text" id="country" name="country" placeholder="Country" required>
+                                <div class="invalid-msg">Please enter your country</div>
+                            </div>
+
+                            <div class="consent-wrap">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <div>
+                                    <label class="consent-text" for="consent">
+                                        By providing my contact information, I agree and authorize Clarivate to contact me with personalized communications about products and services. You also acknowledge that your data may be collected and processed in accordance with applicable laws and regulations.
+                                    </label>
+                                    <div class="consent-invalid">You must agree to the terms to proceed</div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-download">Download Now</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            const form = document.getElementById('mainForm');
+            const inputs = form.querySelectorAll('input:not([type="checkbox"]), select');
+            const checkbox = form.querySelector('#consent');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                form.classList.add('was-validated');
+
+                if (form.checkValidity()) {
+                    window.open('./assets/Clarivate_Deals_2026_Report.pdf', '_blank');
+                } else {
+                    const firstInvalid = form.querySelector('input:invalid, select:invalid');
+                    if (firstInvalid) firstInvalid.focus();
+                }
+            });
+
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    if (form.classList.contains('was-validated')) {
+                        this.classList.toggle('is-invalid', !this.checkValidity());
+                    }
+                });
+            });
+
+            // Toggle 'has-value' style on select change
+            form.querySelectorAll('select').forEach(select => {
+                select.addEventListener('change', function () {
+                    this.classList.toggle('has-value', this.value !== '');
+                });
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
