@@ -1,0 +1,14 @@
+[
+  {
+    "id": "586631eb-c1df-4b4f-8086-7f4cf34a4bb1",
+    "username": "aryan",
+    "displayName": "aryan",
+    "passwordHash": "2e2134318ac14f554e69c1fbb7bb552f:145c518d37ca489ea6468f2a9f44b5542bf476c75b578694dd40a29453ae0a4a412439eae994cd41a3c1f74f4deaeb689172ef0c97b42e8325fb3264d4d830f7",
+    "allowedCampaigns": [
+      "HRIS",
+      "ERP",
+      "test"
+    ],
+    "createdAt": "2026-09-09T13:59:30.037Z"
+  }
+]

@@ -1,6 +1,9 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCampaignBySlug } from "@/lib/campaigns";
 import { SelectHubForm } from "@/components/selecthub/SelectHubForm";
+import { getFormUserId } from "@/lib/auth";
+import { getUserById, canAccessCampaign } from "@/lib/users";
+import { cookies } from "next/headers";
 
 export default async function CampaignPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -9,6 +12,10 @@ export default async function CampaignPage({ params }: { params: Promise<{ slug:
   if (!campaign) {
     notFound();
   }
+
+  const userId = await getFormUserId({ cookies: await cookies() });
+  const user = userId && userId !== "legacy" ? await getUserById(userId) : null;
+  if (user && !canAccessCampaign(user, campaign.slug)) redirect("/dashboard");
 
   const { visuals, content, formConfig } = campaign;
   const primaryColor = visuals.primaryColor || "var(--blue-500)"; // Default from globals.css if needed

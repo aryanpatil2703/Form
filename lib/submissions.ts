@@ -13,6 +13,7 @@ export type SubmissionRecord = {
   lead: Record<string, string>;
   selecthub_payload: SelectHubPayload;
   error?: string;
+  user_id?: string;
 };
 
 const localFile = path.join(process.cwd(), "data", "submissions.json");
@@ -76,12 +77,14 @@ export async function updateSubmission(id: string, status: SubmissionStatus, err
   }
 }
 
-export async function listSubmissions(): Promise<SubmissionRecord[]> {
+export async function listSubmissions(userId?: string, campaignSlug?: string): Promise<SubmissionRecord[]> {
   if (databaseConfigured()) {
     await ensureSubmissionCollection();
-    return (await (await submissionsCollection()).find({}, { projection: { _id: 0 } }).sort({ created_at: -1 }).limit(1000).toArray()) as SubmissionRecord[];
+    const filter = { ...(userId ? { user_id: userId } : {}), ...(campaignSlug ? { campaign_slug: campaignSlug } : {}) };
+    return (await (await submissionsCollection()).find(filter, { projection: { _id: 0 } }).sort({ created_at: -1 }).limit(1000).toArray()) as SubmissionRecord[];
   }
-  return readLocal();
+  const records = await readLocal();
+  return records.filter((record) => (!userId || record.user_id === userId) && (!campaignSlug || record.campaign_slug === campaignSlug));
 }
 
 async function readLocal(): Promise<SubmissionRecord[]> {

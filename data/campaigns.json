@@ -76,7 +76,39 @@
       "contract_po_number": "SAGA-ERP-Global",
       "user_journey": "Top 20 ERP Systems Comparison BattleCard, Oracle ERP vs Best ALT PPL",
       "page_url": "https://get.softwarebattlecard.com/saga-top-20-erp-systems-comparison-oracle-vs-alt/"
-      
+    }
+  },
+  {
+    "slug": "test",
+    "visuals": {
+      "primaryColor": "#d8ed65"
+    },
+    "content": {
+      "eyebrow": "SAGA / RESEARCH BRIEF",
+      "title": "Make the next decision with a clearer view.",
+      "introCopy": "Get the practical selection guide.",
+      "guideNoteNumber": "01",
+      "guideNoteText": "One concise guide for teams weighing their next system.",
+      "formEyebrow": "YOUR DETAILS",
+      "formTitle": "Send me the guide"
+    },
+    "formConfig": {
+      "submitButtonText": "Submit",
+      "customFields": []
+    },
+    "selectHubConfig": {
+      "lead_source": "SAGA-PPL",
+      "campaign": "asset_request",
+      "category": "HR Management Software",
+      "category_slug": "",
+      "survey_slug": "",
+      "asset_type": "Selection Guide",
+      "team": "",
+      "contract_po_number": "SAGA-HR-Global",
+      "campaign_name": "SAGA HRIS Systems ADP VS BattleCard 26",
+      "page_url": "https://get.softwarebattlecard.com/",
+      "user_journey": "HRIS BattleCard, ADP vs BambooHR vs Workday vs Rippling PPL",
+      "timeframe_to_decision": ""
     }
   }
 ]

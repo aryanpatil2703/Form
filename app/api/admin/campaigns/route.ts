@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { saveCampaign, CampaignConfig } from "@/lib/campaigns";
+import { getCampaigns, saveCampaign, CampaignConfig } from "@/lib/campaigns";
 import fs from "fs/promises";
 import path from "path";
 
@@ -76,4 +76,8 @@ export async function POST(request: NextRequest) {
     console.error("Error creating campaign:", error);
     return NextResponse.json({ success: false, error: "Failed to create campaign" }, { status: 500 });
   }
+}
+
+export async function GET() {
+  return NextResponse.json({ success: true, campaigns: await getCampaigns() });
 }

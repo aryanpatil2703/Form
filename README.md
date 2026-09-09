@@ -16,7 +16,10 @@ Environment variables:
 - `SELECTHUB_SCORECARD_ID`: retained for compatibility with the supplied configuration, but intentionally unused. Each submission receives a new server-generated UUID.
 - `SELECTHUB_MOCK`: set to `true` for local development to avoid sending test leads; it is ignored in production.
 - `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_SESSION_SECRET`: required for protected admin access. Store these as Vercel environment variables, never in source control.
+- `FORM_USER_EMAIL`, `FORM_USER_PASSWORD`, and optionally `FORM_SESSION_SECRET`: required for protected form access. Users sign in at `/login`; this account and session are separate from admin access.
 - `MONGODB_URI` and `MONGODB_DB`: required in production for durable submission records. Use a MongoDB Atlas connection string and database name.
+
+Set `FORM_USER_EMAIL` and `FORM_USER_PASSWORD` to the credentials you will give form users. The signed HTTP-only form session expires after eight hours. Configure a long random `FORM_SESSION_SECRET` in production; do not reuse the admin secret unless that is intentional.
 
 ## Platform administration
 

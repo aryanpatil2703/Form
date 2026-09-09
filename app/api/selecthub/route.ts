@@ -7,8 +7,15 @@ import { getCampaignBySlug } from "@/lib/campaigns";
 import { createSubmission, hasDurableSubmissionStore, updateSubmission } from "@/lib/submissions";
 import { randomUUID } from "crypto";
 import { isSuppressedCompany } from "@/lib/selecthub/suppression";
+import { getFormUserId } from "@/lib/auth";
+import { getUserById, canAccessCampaign } from "@/lib/users";
 
 export async function POST(request: NextRequest) {
+  const userId = await getFormUserId(request);
+  if (!userId) {
+    return NextResponse.json({ success: false, message: "Authentication required." }, { status: 401 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -38,6 +45,10 @@ export async function POST(request: NextRequest) {
   if (!campaign) {
     return NextResponse.json({ success: false, message: "Campaign not found." }, { status: 404 });
   }
+  const user = userId !== "legacy" ? await getUserById(userId) : null;
+  if (user && !canAccessCampaign(user, campaign.slug)) {
+    return NextResponse.json({ success: false, message: "You do not have access to this campaign." }, { status: 403 });
+  }
 
   if (isSuppressedCompany(parsed.data.company_name, campaign.competitors)) {
     console.info(`SelectHub submission suppressed for campaign ${campaign.slug}`);
@@ -62,6 +73,7 @@ export async function POST(request: NextRequest) {
     scorecard_id: payload.scorecard_id,
     lead: parsed.data,
     selecthub_payload: payload,
+    user_id: userId,
   });
   console.info("SelectHub submission started");
   const result = await submitLeadToSelectHub(payload);
