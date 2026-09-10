@@ -11,10 +11,15 @@
     "test": "node --test --import tsx tests/selecthub.test.ts"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "clsx": "^2.1.1",
     "mongodb": "latest",
     "next": "latest",
+    "postcss": "^8.5.28",
     "react": "latest",
     "react-dom": "latest",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3",
     "zod": "latest"
   },
   "devDependencies": {
